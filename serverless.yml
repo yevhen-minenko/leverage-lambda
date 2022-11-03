@@ -1,11 +1,5 @@
 service: app
 
-custom:
-    serverless-offline:
-        host: 0.0.0.0
-        useDocker: true
-        dockerHost: host.docker.internal
-
 provider:
     name: aws
     region: us-east-1
@@ -13,16 +7,17 @@ provider:
 
 plugins:
     - ./vendor/bref/bref
-    - serverless-offline
 
 functions:
     hello:
         handler: index.php
         description: ''
         layers:
-            - ${bref:layer.php-81}
+            - ${bref:layer.php-81-fpm}
 
 # Exclude files from deployment
 package:
     patterns:
         - '!tests/**'
+        - '!bin/**'
+        - '!docker/**'
