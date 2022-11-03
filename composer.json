@@ -3,7 +3,8 @@
     "type": "library",
     "license": "MIT",
     "bin": [
-        "bin/serverless"
+        "bin/serverless",
+        "vendor/bin/static"
     ],
     "require": {
         "bref/bref": "^1.7"
